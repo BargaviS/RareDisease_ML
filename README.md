@@ -1,159 +1,112 @@
-# Chest X-ray Pneumonia Detection
+Chest X-ray Pneumonia Detection
 
-A deep learning project that detects **pneumonia** from chest X-ray images.  
-Includes **offline inference using TensorFlow Lite**, **PDF report generation**, and **heatmap visualization**.
+A deep learning project that detects pneumonia from chest X-ray images. Includes offline inference using TensorFlow Lite, PDF report generation, and heatmap visualization to highlight affected regions.
 
----
+Features
 
-## Features
+Classifies chest X-rays as Normal or Pneumonia
 
-- Detects **Normal** vs **Pneumonia** from chest X-rays.
-- Provides **confidence score** for predictions.
-- Generates **PDF report** with patient details and X-ray.
-- **Saliency heatmaps** highlight affected regions.
-- Fully offline using **TFLite model**.
+Provides prediction confidence
 
----
+Generates PDF report with patient details and uploaded X-ray
 
-## Dataset Structure
+Highlights regions of interest using saliency heatmaps
 
-The project expects data under `data/chest_xray/`:
-# Chest X-ray Pneumonia Detection
+Fully offline using a TFLite model
 
-A deep learning project that detects **pneumonia** from chest X-ray images.  
-Includes **offline inference using TensorFlow Lite**, **PDF report generation**, and **heatmap visualization**.
+Dataset Structure
 
----
+The project expects data under data/chest_xray/:
 
-## Features
-
-- Detects **Normal** vs **Pneumonia** from chest X-rays.
-- Provides **confidence score** for predictions.
-- Generates **PDF report** with patient details and X-ray.
-- **Saliency heatmaps** highlight affected regions.
-- Fully offline using **TFLite model**.
-
----
-
-## Dataset Structure
-
-The project expects data under `data/chest_xray/`:
 data/
 └─ chest_xray/
-├─ train/
-│ ├─ normal/
-│ └─ pneumonia/
-├─ val/
-│ ├─ normal/
-│ └─ pneumonia/
-└─ test/
-├─ normal/
-└─ pneumonia/
+    ├─ train/
+        ├─ normal/
+        └─ pneumonia/
+    ├─ val/
+        ├─ normal/
+        └─ pneumonia/
+    └─ test/
+        ├─ normal/
+        └─ pneumonia/
 
----
+Model Performance
+Metric	Normal	Pneumonia
+Accuracy	95.2%	95.2%
+Precision	0.88	0.92
+Recall	0.87	0.93
+F1-score	0.87	0.92
 
-## Model Performance
+The model achieves high accuracy and highlights affected areas for explainability.
 
-| Metric    | Value |
-|-----------|-------|
-| Accuracy  | 95.2% |
-| Precision | 0.88 (Normal), 0.92 (Pneumonia) |
-| Recall    | 0.87 (Normal), 0.93 (Pneumonia) |
-| F1-score  | 0.87 (Normal), 0.92 (Pneumonia) |
+Project Structure
 
----
-
-## Project Structure
-
----
-
-## Model Performance
-
-| Metric    | Value |
-|-----------|-------|
-| Accuracy  | 95.2% |
-| Precision | 0.88 (Normal), 0.92 (Pneumonia) |
-| Recall    | 0.87 (Normal), 0.93 (Pneumonia) |
-| F1-score  | 0.87 (Normal), 0.92 (Pneumonia) |
-
----
-
-## Project Structure
 RareDiseaseML/
-│
 ├─ data/ # Chest X-ray images
-├─ outputs/ # Model, reports, heatmaps
+├─ outputs/ # Saved model, reports, heatmaps
 ├─ src/ # Python scripts
-│ ├─ preprocess.py
-│ ├─ train_model.py
-│ ├─ evaluate_model.py
-│ ├─ convert_tflite.py
-│ ├─ run_tflite.py
-│ ├─ predict_tflite.py
-│ ├─ gradio_demo.py
-│ └─ utils.py
+    ├─ preprocess.py # Preprocess images for training/testing
+    ├─ train_model.py # Train CNN model
+    ├─ evaluate_model.py # Evaluate model performance
+    ├─ convert_tflite.py # Convert Keras model to TFLite
+    ├─ run_tflite.py # Run TFLite model on a test image
+    ├─ predict_tflite.py # Predict single image using TFLite
+    ├─ gradio_demo.py # Web app interface
+    └─ utils.py # Helper functions for preprocessing, PDF, heatmaps
 ├─ docs/
-│ └─ screenshots/ # App interface and report examples
-├─ requirements.txt
+    └─ screenshots/ # Sample app interface and report screenshots
+├─ requirements.txt # Python dependencies
 └─ README.md
 
+Installation
 
----
+Clone the repository:
 
-## Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/<your-username>/RareDiseaseML.git
+git clone https://github.com/
+<your-username>/RareDiseaseML.git
 cd RareDiseaseML
 
 Create and activate a virtual environment:
 
-# Create virtual environment
 python -m venv venv
 
-# Windows
+Windows
+
 venv\Scripts\activate
 
-# Mac/Linux
+Mac/Linux
+
 source venv/bin/activate
 
 Install dependencies:
 
 pip install -r requirements.txt
+
 Running the Project
 
-Train Model
-
+Train Model:
 python src/train_model.py
 
-Evaluate Model
-
+Evaluate Model:
 python src/evaluate_model.py
 
-Convert to TFLite
-
+Convert to TFLite:
 python src/convert_tflite.py
 
-Test TFLite Model
-
+Test TFLite Model:
 python src/run_tflite.py
 
-Predict Single Image
-
+Predict Single Image:
 python src/predict_tflite.py
 
-Run Gradio Web App
-
+Run Web App with Gradio:
 python src/gradio_demo.py
 
-Upload chest X-ray → Enter patient name → Get prediction, confidence, guidance, and download PDF report.
+Upload chest X-ray → Enter patient name → Get prediction, confidence, guidance, and download PDF report
 
 PDF Report
 
-Saved in outputs/report.pdf
-Includes:
+Generated PDF reports include:
 
 Patient name
 
@@ -163,23 +116,22 @@ Uploaded X-ray
 
 Heatmap highlighting affected regions
 
+Saved at: outputs/report.pdf
+
 Notes
 
-Ensure the dataset path follows the structure above.
+Ensure your dataset follows the structure above.
 
-Outputs are saved in outputs/ (model, heatmap, report).
+Outputs are saved in outputs/ (model, heatmap, reports).
 
-TFLite model allows offline usage.
+TFLite allows offline usage.
 
-Recommended Python version: 3.10+
+Tested with Python 3.10+
 
-Tested with: TensorFlow, Gradio, PIL, OpenCV, FPDF
+Key dependencies: TensorFlow, Gradio, PIL, OpenCV, FPDF
 
-This README is professional, clear, and developer-friendly, showing exactly what the project solves and how to run it.
+Screenshots
 
+Gradio App Interface and Sample PDF Report are saved in docs/screenshots/
 
----
-
-If you want, I can **also make a ready-to-use `requirements.txt`** with **exact versions of TensorFlow, Gradio, PIL, OpenCV, FPDF**, so anyone can just clone your repo and run the project **without errors**.  
-
-Do you want me to create that next?
+This README is professional, clean, and developer-friendly, clearly explaining what the project does, how to use it, and the results.
