@@ -1,57 +1,67 @@
-# Chest X-ray Pneumonia Detection
+Chest X-ray Pneumonia Detection
 
-A deep learning project that detects **pneumonia** from chest X-ray images.  
-The system supports **offline inference using TensorFlow Lite**, generates **PDF reports**, and highlights affected areas with **heatmaps**.
+A deep learning project that detects pneumonia from chest X-ray images.
+The system supports offline inference using TensorFlow Lite, generates PDF reports, and highlights affected areas with heatmaps.
 
----
+🚀 Overview
 
-## 🚀 Overview
+Pneumonia is a serious lung infection. Early detection from chest X-rays can save lives.
+This project uses a Convolutional Neural Network (CNN) trained on chest X-ray images to classify Normal vs Pneumonia.
 
-Pneumonia is a serious lung infection. Early detection from chest X-rays can save lives.  
-This project uses a Convolutional Neural Network (CNN) trained on chest X-ray images to classify **Normal** vs **Pneumonia**.  
-It generates **confidence scores**, **visual heatmaps**, and **PDF reports** for each patient.
+It provides:
 
----
+Confidence scores for predictions
 
-## ✨ Key Features
+Heatmaps to visualize affected areas
 
-- Detects **Normal vs Pneumonia** from chest X-rays.
-- Provides **confidence scores** for predictions.
-- Generates **PDF reports** with patient name, X-ray, and prediction.
-- Highlights affected regions using **heatmaps**.
-- Fully offline using a **TFLite model**, lightweight and fast.
-- Interactive **Gradio web app** for easy usage.
+PDF reports containing patient name, X-ray, prediction, and heatmaps
 
----
+Optional Gradio web app for interactive use
 
-## 🧠 How It Works
+✨ Key Features
 
-1. Preprocess X-ray images for model input.
-2. Run predictions using the trained CNN model.
-3. Generate heatmaps to visualize affected areas.
-4. Create PDF report containing:
-   - Patient name
-   - Prediction and confidence
-   - Uploaded X-ray
-   - Heatmap visualization
-5. (Optional) Use Gradio app to upload images and get results live.
+Detects Normal vs Pneumonia from chest X-rays
 
----
+Provides confidence scores for predictions
 
-## 📊 Model Performance
+Generates PDF reports with patient name, X-ray, and prediction
 
-- **Accuracy:** 95.2%
-- **Precision:** 0.88 (Normal), 0.92 (Pneumonia)
-- **Recall:** 0.87 (Normal), 0.93 (Pneumonia)
-- **F1-score:** 0.87 (Normal), 0.92 (Pneumonia)
+Highlights affected regions using heatmaps
 
----
+Fully offline using a TFLite model (lightweight and fast)
 
-## ⚙️ Installation
+Interactive Gradio web app for easy usage
 
-1. Clone the repository:
+🧠 How It Works
 
-```bash
+Preprocess X-ray images for model input
+
+Run predictions using the trained CNN model
+
+Generate heatmaps to visualize affected areas
+
+Create PDF reports containing:
+
+Patient name
+
+Prediction and confidence
+
+Uploaded X-ray
+
+Heatmap visualization
+
+Optionally, use the Gradio web app to upload images and get live results
+
+📊 Model Performance
+Metric	Value
+Accuracy	95.2%
+Precision	0.88 (Normal), 0.92 (Pneumonia)
+Recall	0.87 (Normal), 0.93 (Pneumonia)
+F1-score	0.87 (Normal), 0.92 (Pneumonia)
+⚙️ Installation
+
+Clone the repository:
+
 git clone https://github.com/<your-username>/RareDiseaseML.git
 cd RareDiseaseML
 
@@ -66,56 +76,39 @@ source venv/bin/activate
 Install dependencies:
 
 pip install -r requirements.txt
----
 ▶️ How to Run
 
 Train the model
 
-
 python src/train_model.py
-
 
 Evaluate the model
 
-
 python src/evaluate_model.py
-
 
 Convert model to TFLite
 
-
 python src/convert_tflite.py
-
 
 Test TFLite model on an image
 
-
 python src/run_tflite.py
-
 
 Predict single image using TFLite
 
-
 python src/predict_tflite.py
-
 
 Launch Gradio Web App
 
-
 python src/gradio_demo.py
 
-
-Upload a chest X-ray, enter patient name, and get:
-
+Usage: Upload a chest X-ray, enter patient name, and get:
 
 Prediction (Normal / Pneumonia)
 
+Confidence score
 
-Confidence
-
-
-Guidance
----
+Patient guidance
 
 Downloadable PDF report
 
@@ -130,7 +123,7 @@ Prediction and confidence
 Uploaded X-ray
 
 Heatmap highlighting affected regions
----
+
 ⚠️ Notes
 
 Follow the dataset structure strictly.
@@ -140,7 +133,7 @@ All outputs (model, heatmaps, reports) are saved in outputs/.
 TFLite model allows offline inference.
 
 Gradio app provides a simple interface for non-technical users.
----
+
 🛠️ Technologies Used
 
 Python
@@ -154,19 +147,15 @@ PIL (Pillow)
 FPDF
 
 Gradio
----
+
 👩‍💻 Author
 
-Bargavi S
-Aspiring AI Engineer
+Bargavi S – Aspiring AI Engineer
 
 GitHub: https://github.com/BargaviS
 
 LinkedIn: https://linkedin.com/in/bargavis
----
+
 ⭐ Acknowledgment
 
 If you found this project useful, consider giving it a star ⭐ on GitHub.
-
-
-
