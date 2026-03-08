@@ -1,0 +1,15 @@
+# Ignore virtual environment
+venv/
+
+# Ignore outputs (models, reports, heatmaps)
+outputs/
+
+# Ignore raw datasets
+data/
+
+# Ignore Gradio cache
+.gradio/
+
+# Python cache
+__pycache__/
+*.pyc
