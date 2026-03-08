@@ -71,4 +71,4 @@ history = model.fit(
     callbacks=[checkpoint, early_stop]
 )
 
-print("✅ Training complete! Model saved to", output_model_path)
+print(" Training complete! Model saved to", output_model_path)

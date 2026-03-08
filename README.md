@@ -1,112 +1,127 @@
-Chest X-ray Pneumonia Detection
+# Chest X-ray Pneumonia Detection
 
-A deep learning project that detects pneumonia from chest X-ray images. Includes offline inference using TensorFlow Lite, PDF report generation, and heatmap visualization to highlight affected regions.
+A deep learning project that detects **pneumonia** from chest X-ray images.  
+The system supports **offline inference using TensorFlow Lite**, generates **PDF reports**, and highlights affected areas with **heatmaps**.
 
-Features
+---
 
-Classifies chest X-rays as Normal or Pneumonia
+## 🚀 Overview
 
-Provides prediction confidence
+Pneumonia is a serious lung infection. Early detection from chest X-rays can save lives.  
+This project uses a Convolutional Neural Network (CNN) trained on chest X-ray images to classify **Normal** vs **Pneumonia**.  
+It generates **confidence scores**, **visual heatmaps**, and **PDF reports** for each patient.
 
-Generates PDF report with patient details and uploaded X-ray
+---
 
-Highlights regions of interest using saliency heatmaps
+## ✨ Key Features
 
-Fully offline using a TFLite model
+- Detects **Normal vs Pneumonia** from chest X-rays.
+- Provides **confidence scores** for predictions.
+- Generates **PDF reports** with patient name, X-ray, and prediction.
+- Highlights affected regions using **heatmaps**.
+- Fully offline using a **TFLite model**, lightweight and fast.
+- Interactive **Gradio web app** for easy usage.
 
-Dataset Structure
+---
 
-The project expects data under data/chest_xray/:
+## 🧠 How It Works
 
-data/
-└─ chest_xray/
-    ├─ train/
-        ├─ normal/
-        └─ pneumonia/
-    ├─ val/
-        ├─ normal/
-        └─ pneumonia/
-    └─ test/
-        ├─ normal/
-        └─ pneumonia/
+1. Preprocess X-ray images for model input.
+2. Run predictions using the trained CNN model.
+3. Generate heatmaps to visualize affected areas.
+4. Create PDF report containing:
+   - Patient name
+   - Prediction and confidence
+   - Uploaded X-ray
+   - Heatmap visualization
+5. (Optional) Use Gradio app to upload images and get results live.
 
-Model Performance
-Metric	Normal	Pneumonia
-Accuracy	95.2%	95.2%
-Precision	0.88	0.92
-Recall	0.87	0.93
-F1-score	0.87	0.92
+---
 
-The model achieves high accuracy and highlights affected areas for explainability.
+## 📊 Model Performance
 
-Project Structure
+- **Accuracy:** 95.2%
+- **Precision:** 0.88 (Normal), 0.92 (Pneumonia)
+- **Recall:** 0.87 (Normal), 0.93 (Pneumonia)
+- **F1-score:** 0.87 (Normal), 0.92 (Pneumonia)
 
-RareDiseaseML/
-├─ data/ # Chest X-ray images
-├─ outputs/ # Saved model, reports, heatmaps
-├─ src/ # Python scripts
-    ├─ preprocess.py # Preprocess images for training/testing
-    ├─ train_model.py # Train CNN model
-    ├─ evaluate_model.py # Evaluate model performance
-    ├─ convert_tflite.py # Convert Keras model to TFLite
-    ├─ run_tflite.py # Run TFLite model on a test image
-    ├─ predict_tflite.py # Predict single image using TFLite
-    ├─ gradio_demo.py # Web app interface
-    └─ utils.py # Helper functions for preprocessing, PDF, heatmaps
-├─ docs/
-    └─ screenshots/ # Sample app interface and report screenshots
-├─ requirements.txt # Python dependencies
-└─ README.md
+---
 
-Installation
+## ⚙️ Installation
 
-Clone the repository:
+1. Clone the repository:
 
-git clone https://github.com/
-<your-username>/RareDiseaseML.git
+```bash
+git clone https://github.com/<your-username>/RareDiseaseML.git
 cd RareDiseaseML
 
 Create and activate a virtual environment:
 
 python -m venv venv
-
-Windows
-
+# Windows
 venv\Scripts\activate
-
-Mac/Linux
-
+# Mac/Linux
 source venv/bin/activate
 
 Install dependencies:
 
 pip install -r requirements.txt
+---
+▶️ How to Run
 
-Running the Project
+Train the model
 
-Train Model:
+
 python src/train_model.py
 
-Evaluate Model:
+
+Evaluate the model
+
+
 python src/evaluate_model.py
 
-Convert to TFLite:
+
+Convert model to TFLite
+
+
 python src/convert_tflite.py
 
-Test TFLite Model:
+
+Test TFLite model on an image
+
+
 python src/run_tflite.py
 
-Predict Single Image:
+
+Predict single image using TFLite
+
+
 python src/predict_tflite.py
 
-Run Web App with Gradio:
+
+Launch Gradio Web App
+
+
 python src/gradio_demo.py
 
-Upload chest X-ray → Enter patient name → Get prediction, confidence, guidance, and download PDF report
 
-PDF Report
+Upload a chest X-ray, enter patient name, and get:
 
-Generated PDF reports include:
+
+Prediction (Normal / Pneumonia)
+
+
+Confidence
+
+
+Guidance
+---
+
+Downloadable PDF report
+
+📄 PDF Report
+
+Saved in outputs/report.pdf. Includes:
 
 Patient name
 
@@ -115,23 +130,43 @@ Prediction and confidence
 Uploaded X-ray
 
 Heatmap highlighting affected regions
+---
+⚠️ Notes
 
-Saved at: outputs/report.pdf
+Follow the dataset structure strictly.
 
-Notes
+All outputs (model, heatmaps, reports) are saved in outputs/.
 
-Ensure your dataset follows the structure above.
+TFLite model allows offline inference.
 
-Outputs are saved in outputs/ (model, heatmap, reports).
+Gradio app provides a simple interface for non-technical users.
+---
+🛠️ Technologies Used
 
-TFLite allows offline usage.
+Python
 
-Tested with Python 3.10+
+TensorFlow / TensorFlow Lite
 
-Key dependencies: TensorFlow, Gradio, PIL, OpenCV, FPDF
+OpenCV
 
-Screenshots
+PIL (Pillow)
 
-Gradio App Interface and Sample PDF Report are saved in docs/screenshots/
+FPDF
 
-This README is professional, clean, and developer-friendly, clearly explaining what the project does, how to use it, and the results.
+Gradio
+---
+👩‍💻 Author
+
+Bargavi S
+Aspiring AI Engineer
+
+GitHub: https://github.com/BargaviS
+
+LinkedIn: https://linkedin.com/in/bargavis
+---
+⭐ Acknowledgment
+
+If you found this project useful, consider giving it a star ⭐ on GitHub.
+
+
+
